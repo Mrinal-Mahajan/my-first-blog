@@ -1,21 +1,6 @@
-      {% load staticfiles %}
+      {% extends 'blog/base.html' %}
 
-<html>
-          
-     <head>
-          <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-          <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-           <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-          <title>Mrinal's blog</title>
-     </head>
-
-      <body>
-        
-   <h1> Mrinal's Blog </h1>
-
-       <div>
-            <h2><a href="">My first post</a></h2>
-        </div>
+      {% block content %}
         {% for post in posts %}
         <div>
               <p>published: {{ post.published_date }}</p>
@@ -23,8 +8,5 @@
         <p>{{ post.text|linebreaks }}</p>   
          </div>
        {% endfor %}
-    <p>Hi there! My name is mrinal and you are currently viewing my webpage .</p>
-    <p>It works!</p>
-         
-      </body>
-</html>
+     {% endblock %}
+    
